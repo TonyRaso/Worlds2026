@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USA Road Trip 2026 – Dallas ➜ New York | Worlds LoL</title>
+  <meta name="description" content="2 semaines d'aventure aux États-Unis – Road trip Dallas vers New York, Worlds 2026 League of Legends, sports américains et découverte des plus belles villes." />
+  <meta property="og:title" content="USA Road Trip 2026 – Dallas ➜ New York" />
+  <meta property="og:description" content="2 semaines, 8 villes, les Worlds de LoL. Qui est partant ?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────── */
+    :root {
+      --black:    #0A0A0F;
+      --night:    #0D1B2A;
+      --navy:     #112233;
+      --offwhite: #F5F0E8;
+      --muted:    #8A8A9A;
+      --gold:     #C89B3C;
+      --red:      #C13B2D;
+      --red-light:#E05A4A;
+      --blue-acc: #1E90FF;
+      --card-bg:  #111827;
+      --border:   rgba(200,155,60,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--offwhite);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─────────────────────────────────────────
+       SCROLL PROGRESS BAR
+    ───────────────────────────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: transparent;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,15,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.12em;
+      color: var(--offwhite);
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--offwhite); }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+    }
+    .nav-cta:hover { background: var(--red-light) !important; color: #fff !important; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+    }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.08);
+      transition: transform 0.1s linear;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10,10,15,0.88) 0%,
+        rgba(10,10,15,0.55) 55%,
+        rgba(10,10,15,0.15) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 0 2.5rem;
+      animation: fadeUp 1s ease both;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--offwhite);
+      margin-bottom: 1.5rem;
+    }
+    h1 .accent { color: var(--red); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(245,240,232,0.78);
+      max-width: 560px;
+      margin-bottom: 2.2rem;
+      font-weight: 300;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--offwhite);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: 1px solid rgba(245,240,232,0.35);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--offwhite);
+      background: rgba(245,240,232,0.05);
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(245,240,232,0.12);
+    }
+    .stat { text-align: left; }
+    .stat-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+      animation: bounce 2s infinite;
+    }
+    .scroll-hint span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .scroll-arrow { width: 1px; height: 40px; background: var(--offwhite); }
+
+    /* ─────────────────────────────────────────
+       SECTION BASE
+    ───────────────────────────────────────── */
+    section { padding: 6rem 2.5rem; }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: 0.03em;
+      color: var(--offwhite);
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      font-weight: 300;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ─────────────────────────────────────────
+       WHY SECTION – CARDS
+    ───────────────────────────────────────── */
+    #why { background: var(--night); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .why-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .why-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--offwhite);
+      margin-bottom: 0.5rem;
+    }
+    .why-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─────────────────────────────────────────
+       WORLDS SECTION
+    ───────────────────────────────────────── */
+    #worlds {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    #worlds::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(193,59,45,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .worlds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .worlds-timeline { position: relative; padding-left: 2rem; }
+    .worlds-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--red), var(--gold));
+    }
+    .wt-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .wt-item::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem; top: 0.3rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 12px rgba(193,59,45,0.6);
+    }
+    .wt-item.gold::before { background: var(--gold); box-shadow: 0 0 12px rgba(200,155,60,0.6); }
+    .wt-item.big::before { width: 14px; height: 14px; left: -2.55rem; top: 0.2rem; }
+    .wt-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .wt-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--offwhite);
+      letter-spacing: 0.05em;
+    }
+    .wt-item.gold .wt-value { color: var(--gold); }
+    .worlds-highlight {
+      background: linear-gradient(135deg, rgba(193,59,45,0.1) 0%, rgba(200,155,60,0.06) 100%);
+      border: 1px solid rgba(193,59,45,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .worlds-highlight h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .worlds-highlight ul { list-style: none; }
+    .worlds-highlight li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+      font-size: 0.95rem;
+      color: rgba(245,240,232,0.8);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .worlds-highlight li:last-child { border-bottom: none; }
+    .worlds-highlight li::before { content: '⚡'; flex-shrink: 0; }
+    .worlds-img {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 220px;
+    }
+
+    @media (max-width: 768px) {
+      .worlds-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* ─────────────────────────────────────────
+       ITINERARY SECTION
+    ───────────────────────────────────────── */
+    #itinerary { background: var(--night); }
+    .itin-timeline { position: relative; }
+    .itin-step {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      margin-bottom: 5rem;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .itin-step.visible { opacity: 1; transform: translateY(0); }
+    .itin-left { position: relative; padding-top: 0.2rem; }
+    .step-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: rgba(200,155,60,0.15);
+      line-height: 1;
+      position: absolute;
+      top: -1rem;
+      left: -0.5rem;
+      pointer-events: none;
+    }
+    .step-city {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--offwhite);
+      position: relative;
+      z-index: 1;
+    }
+    .step-days {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+    .step-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      margin-top: 0.75rem;
+    }
+    .tag-red { background: rgba(193,59,45,0.2); color: var(--red-light); border: 1px solid rgba(193,59,45,0.3); }
+    .tag-gold { background: rgba(200,155,60,0.15); color: var(--gold); border: 1px solid rgba(200,155,60,0.3); }
+    .tag-blue { background: rgba(30,144,255,0.12); color: var(--blue-acc); border: 1px solid rgba(30,144,255,0.25); }
+    .itin-right {}
+    .itin-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .itin-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 150px;
+    }
+    .itin-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .itin-photo:hover img { transform: scale(1.06); }
+    .itin-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+    .itin-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(245,240,232,0.06);
+      border: 1px solid rgba(245,240,232,0.12);
+      border-radius: 20px;
+      color: rgba(245,240,232,0.7);
+    }
+    .connector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      padding-left: 200px;
+    }
+    .connector-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+    .connector-text {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .connector-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    @media (max-width: 768px) {
+      .itin-step { grid-template-columns: 1fr; gap: 1.5rem; }
+      .connector { padding-left: 0; }
+      .itin-photos { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─────────────────────────────────────────
+       ROUTE MAP
+    ───────────────────────────────────────── */
+    #map-section { background: var(--black); padding: 6rem 2.5rem; }
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--night);
+      padding: 3rem;
+    }
+    .route-svg-wrap {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .route-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .route-stat { text-align: center; }
+    .route-stat .val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+    }
+    .route-stat .lbl {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    @media (max-width: 600px) { .route-stats { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ─────────────────────────────────────────
+       BUDGET
+    ───────────────────────────────────────── */
+    #budget { background: var(--night); }
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+    .budget-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.25s;
+    }
+    .budget-card:hover { border-color: var(--gold); }
+    .budget-category {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .budget-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .budget-range {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--offwhite);
+      letter-spacing: 0.03em;
+    }
+    .budget-total {
+      background: linear-gradient(135deg, rgba(193,59,45,0.15) 0%, rgba(200,155,60,0.1) 100%);
+      border: 1px solid rgba(200,155,60,0.35);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .budget-total-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .budget-total-range {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--offwhite);
+      line-height: 1;
+    }
+    .budget-total-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; }
+    .budget-bar { flex: 1; min-width: 280px; }
+    .bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.7rem; }
+    .bar-label { font-size: 0.8rem; color: var(--muted); width: 110px; flex-shrink: 0; }
+    .bar-track { flex: 1; height: 6px; background: rgba(245,240,232,0.08); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; transition: width 1.5s ease; }
+    .bar-val { font-size: 0.8rem; color: var(--offwhite); width: 70px; text-align: right; }
+
+    /* ─────────────────────────────────────────
+       PRICE PROOFS
+    ───────────────────────────────────────── */
+    #proofs { background: var(--black); }
+    .proofs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .proof-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .proof-placeholder {
+      height: 180px;
+      background: linear-gradient(135deg, #1a1f2e 0%, #111827 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .proof-placeholder-icon { font-size: 2rem; opacity: 0.4; }
+    .proof-placeholder-text { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .proof-info { padding: 1.25rem; }
+    .proof-source { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .proof-desc { font-size: 0.9rem; color: rgba(245,240,232,0.75); }
+    .proofs-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─────────────────────────────────────────
+       GALLERY
+    ───────────────────────────────────────── */
+    #gallery { background: var(--night); }
+    .gallery-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .gallery-tab {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      border: 1px solid rgba(245,240,232,0.15);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: none;
+    }
+    .gallery-tab.active, .gallery-tab:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(200,155,60,0.08);
+    }
+    .masonry-grid {
+      columns: 3 250px;
+      gap: 1rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s; }
+    .masonry-item:hover img { transform: scale(1.04); }
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,15,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    .masonry-item:hover .masonry-overlay { opacity: 1; }
+    .masonry-caption { font-size: 0.82rem; font-weight: 500; color: #fff; }
+
+    /* ─────────────────────────────────────────
+       FAQ
+    ───────────────────────────────────────── */
+    #faq { background: var(--black); }
+    .faq-grid { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(245,240,232,0.1);
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--offwhite);
+      gap: 1rem;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--gold);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(200,155,60,0.1); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+
+    /* ─────────────────────────────────────────
+       CTA
+    ───────────────────────────────────────── */
+    #cta {
+      background: var(--night);
+      text-align: center;
+      padding: 8rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(193,59,45,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #cta .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    #cta .section-subtitle { margin: 0 auto 2.5rem; text-align: center; }
+    .cta-form-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1.25rem;
+    }
+    .cta-form-note a { color: var(--gold); }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .footer-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(245,240,232,0.55);
+      max-width: 500px;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .footer-logo span { color: var(--gold); }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Staggered reveals */
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">USA<span>2026</span></div>
+  <div class="nav-links">
+    <a href="#why">Pourquoi</a>
+    <a href="#worlds">Worlds</a>
+    <a href="#itinerary">Itinéraire</a>
+    <a href="#budget">Budget</a>
+    <a href="#cta" class="nav-cta">Je suis partant</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Automne 2026 · Road Trip</div>
+    <h1>USA Road Trip<br/><span class="accent">2026</span><br/>Dallas ➜ New York</h1>
+    <p class="hero-sub">2 semaines d'aventure, les Worlds de League of Legends, les plus grandes villes américaines et un road trip inoubliable.</p>
+    <div class="hero-btns">
+      <a href="#itinerary" class="btn-primary">Voir l'itinéraire</a>
+      <a href="#cta" class="btn-outline">Je suis intéressé</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-value">2</div><div class="stat-label">semaines</div></div>
+      <div class="stat"><div class="stat-value">~2 600</div><div class="stat-label">kilomètres</div></div>
+      <div class="stat"><div class="stat-value">8</div><div class="stat-label">villes</div></div>
+      <div class="stat"><div class="stat-value">Worlds</div><div class="stat-label">LoL 2026</div></div>
+      <div class="stat"><div class="stat-value">NBA · NFL</div><div class="stat-label">sports</div></div>
+      <div class="stat"><div class="stat-value">4 – 8</div><div class="stat-label">amis</div></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY
+════════════════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Pourquoi ce voyage</div>
+      <h2 class="section-title">Six bonnes raisons<br/>de dire oui</h2>
+      <p class="section-subtitle">Un voyage unique qui combine esport, culture, sport, musique et aventure dans les plus belles villes des États-Unis.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-d1">
+        <div class="why-icon">🏆</div>
+        <h3>Worlds 2026</h3>
+        <p>Assister en direct au championnat du monde de League of Legends — de l'Allen Arena au Madison Square Garden.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-icon">✈️</div>
+        <h3>Découverte des USA</h3>
+        <p>Traverser les États-Unis de fond en comble — Texas, Tennessee, Smoky Mountains, Washington et New York.</p>
+      </div>
+      <div class="why-card reveal reveal-d3">
+        <div class="why-icon">🏀</div>
+        <h3>Sports américains</h3>
+        <p>NBA à Dallas, NHL, NFL à Arlington — vivre l'ambiance incomparable des grandes salles américaines.</p>
+      </div>
+      <div class="why-card reveal reveal-d4">
+        <div class="why-icon">🎵</div>
+        <h3>Musique & Nightlife</h3>
+        <p>Deep Ellum à Dallas, Sixth Street à Austin, Beale Street à Memphis, Broadway à Nashville — des nuits inoubliables.</p>
+      </div>
+      <div class="why-card reveal reveal-d5">
+        <div class="why-icon">🏔️</div>
+        <h3>Nature & Aventure</h3>
+        <p>Randonnées dans les Smoky Mountains aux couleurs d'automne — un bol d'air entre deux grandes villes.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📸</div>
+        <h3>Souvenirs entre amis</h3>
+        <p>2 semaines, des centaines de photos et des histoires qu'on racontera pendant des années. On regrette plus les voyages qu'on n'a pas faits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WORLDS
+════════════════════════════════════════ -->
+<section id="worlds">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">League of Legends · Esport</div>
+      <h2 class="section-title">Worlds 2026<br/>en Amérique du Nord</h2>
+      <p class="section-subtitle">Le championnat du monde LoL revient en Amérique du Nord — et notre road trip passe exactement là où tout se joue.</p>
+    </div>
+
+    <div class="worlds-grid">
+      <div>
+        <div class="worlds-timeline reveal">
+          <div class="wt-item big">
+            <div class="wt-label">Lieu</div>
+            <div class="wt-value">🤠 Texas – Allen</div>
+          </div>
+          <div class="wt-item">
+            <div class="wt-label">Phase</div>
+            <div class="wt-value">Quarts de finale</div>
+          </div>
+          <div class="wt-item">
+            <div class="wt-label">Phase</div>
+            <div class="wt-value">Demi-finales</div>
+          </div>
+          <div class="wt-item big gold">
+            <div class="wt-label">Lieu</div>
+            <div class="wt-value">🗽 New York</div>
+          </div>
+          <div class="wt-item gold">
+            <div class="wt-label">Phase</div>
+            <div class="wt-value">Grande Finale 🏆</div>
+          </div>
+        </div>
+        <div class="worlds-img reveal">
+          <img src="https://esportsinsider.com/wp-content/uploads/2025/11/league-of-legends-worlds-2026-texas-new-york.jpg" alt="Esport arena crowd" style="height:220px;" />
+        </div>
+      </div>
+
+      <div class="worlds-highlight reveal">
+        <h3>⚡ Pourquoi c'est une occasion unique</h3>
+        <ul>
+          <li>Les Worlds reviennent en Amérique du Nord pour la première fois depuis plusieurs années</li>
+          <li>Le road trip passe exactement par le Texas et New York — les deux villes hôtes</li>
+          <li>Possibilité d'assister à plusieurs phases du tournoi — du Play-in à la Grande Finale</li>
+          <li>Allen Arena à Dallas pour les phases préliminaires jusqu'aux demi-finales</li>
+          <li>Finir le voyage à New York pour la Grande Finale — meilleur climax possible</li>
+          <li>Vivre l'ambiance d'une salle comble devant les meilleures équipes mondiales</li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <img src="https://static.invenglobal.com/upload/image/2025/11/10/i1762794715625171.jpeg" alt="Gaming arena" style="border-radius:8px;height:180px;width:100%;object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ITINERARY
+════════════════════════════════════════ -->
+<section id="itinerary">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">2 semaines · 8 étapes</div>
+      <h2 class="section-title">L'itinéraire<br/>complet</h2>
+      <p class="section-subtitle">De Dallas à New York, en passant par la musique, les montagnes et l'histoire américaine.</p>
+    </div>
+
+    <div class="itin-timeline">
+
+      <!-- DALLAS -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">01</div>
+          <div class="step-city">Dallas</div>
+          <div class="step-days">5 jours</div>
+          <span class="step-tag tag-red">🏆 Worlds</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&q=80" alt="Dallas Skyline" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="Deep Ellum" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=600&q=80" alt="AT&T Stadium" /></div>
+          </div>
+          <p class="itin-desc">Le cœur de notre aventure. On s'installe à Dallas pour 5 jours — assez pour explorer la ville, vivre les phases de groupe des Worlds à l'Allen Arena, et s'imprégner de la culture texane : BBQ, NBA, nightlife.</p>
+          <div class="itin-chips">
+            <span class="chip">NBA – Mavericks</span>
+            <span class="chip">NHL – Stars</span>
+            <span class="chip">Worlds Play-ins</span>
+            <span class="chip">Deep Ellum</span>
+            <span class="chip">Cuisine texane</span>
+            <span class="chip">AT&T Stadium</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">4h de route · 300 km</div><div class="connector-line"></div></div>
+
+      <!-- AUSTIN -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">02</div>
+          <div class="step-city">Austin</div>
+          <div class="step-days">2 jours</div>
+          <span class="step-tag tag-gold">🎸 Musique</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://austinot.com/wp-content/uploads/2018/07/Dirty-Sixth-Street-Austin.jpg" alt="Austin Sixth Street" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" alt="Texas BBQ" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80" alt="Live music" /></div>
+          </div>
+          <p class="itin-desc">La capitale mondiale de la musique live. Sixth Street déborde de bars et de concerts chaque soir. On profite du meilleur BBQ texan et de l'énergie unique de cette ville en perpétuelle ébullition.</p>
+          <div class="itin-chips">
+            <span class="chip">Sixth Street</span>
+            <span class="chip">Live music</span>
+            <span class="chip">Texas BBQ</span>
+            <span class="chip">Nightlife</span>
+            <span class="chip">Food tour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">7h de route · 700 km</div><div class="connector-line"></div></div>
+
+      <!-- MEMPHIS -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">03</div>
+          <div class="step-city">Memphis</div>
+          <div class="step-days">1 jour</div>
+          <span class="step-tag tag-blue">🎷 Blues</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://cdn11.bigcommerce.com/s-7dfz0/images/stencil/1280x1280/products/5497/9223/bealestreetpolicesquare__12758.1676471757.jpg?c=2" alt="Beale Street Memphis" /></div>
+            <div class="itin-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1ZWHBKZ5Zd_hM3wIwqF70_bRzx4UO3iVccQ&s" alt="Blues club" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80" alt="Memphis night" /></div>
+          </div>
+          <p class="itin-desc">Beale Street la nuit, le blues dans les clubs, le barbecue légendaire et l'empreinte d'Elvis. Memphis est un arrêt court mais intense — une ville qui vibre d'une culture musicale unique.</p>
+          <div class="itin-chips">
+            <span class="chip">Beale Street</span>
+            <span class="chip">Blues clubs</span>
+            <span class="chip">Elvis Presley</span>
+            <span class="chip">Graceland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">3h30 de route · 340 km</div><div class="connector-line"></div></div>
+
+      <!-- NASHVILLE -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">04</div>
+          <div class="step-city">Nashville</div>
+          <div class="step-days">2 jours</div>
+          <span class="step-tag tag-gold">🎶 Country</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Nashville Broadway" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80" alt="Country music" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Nashville nightlife" /></div>
+          </div>
+          <p class="itin-desc">Broadway, la rue des honky-tonks qui ne dort jamais. Nashville est la capitale de la country music — bars à deux étages, concerts gratuits, shots de whisky et une énergie folle même en pleine semaine.</p>
+          <div class="itin-chips">
+            <span class="chip">Broadway</span>
+            <span class="chip">Country music</span>
+            <span class="chip">Honky-tonks</span>
+            <span class="chip">Grand Ole Opry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">3h de route · 290 km</div><div class="connector-line"></div></div>
+
+      <!-- SMOKY MOUNTAINS -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">05</div>
+          <div class="step-city">Smoky Mountains</div>
+          <div class="step-days">2 jours</div>
+          <span class="step-tag tag-blue">🏔️ Nature</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Smoky Mountains" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80" alt="Autumn colors" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Hiking trail" /></div>
+          </div>
+          <p class="itin-desc">Contraste total avec les grandes villes. En automne, les Smoky Mountains s'embrasent de rouge et d'orange. Randonnées, air pur et déconnexion totale — exactement ce qu'il faut avant l'ultime sprint vers New York.</p>
+          <div class="itin-chips">
+            <span class="chip">Randonnées</span>
+            <span class="chip">Couleurs d'automne</span>
+            <span class="chip">Nature & déconnexion</span>
+            <span class="chip">Wildlife</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">10h de route · 900 km</div><div class="connector-line"></div></div>
+
+      <!-- WASHINGTON -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">06</div>
+          <div class="step-city">Washington D.C.</div>
+          <div class="step-days">1 jour</div>
+          <span class="step-tag tag-blue">🏛️ Histoire</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1501466044931-62695aada8e9?w=600&q=80" alt="Capitol Washington" /></div>
+            <div class="itin-photo"><img src="https://img.static-kl.com/transform/a630fb0d-1ce7-42f9-8c1f-17f98f0533aa/" alt="National Mall" /></div>
+            <div class="itin-photo"><img src="https://images.trvl-media.com/place/503267/4d729e69-97e8-4e9f-851c-b88935e7d04f.jpg" alt="Lincoln Memorial" /></div>
+          </div>
+          <p class="itin-desc">Le Capitol, le Lincoln Memorial, le National Mall et tous les grands musées — gratuits. Washington se parcourt à pied et offre une plongée dans l'histoire américaine en une journée intense.</p>
+          <div class="itin-chips">
+            <span class="chip">Capitol Hill</span>
+            <span class="chip">National Mall</span>
+            <span class="chip">Lincoln Memorial</span>
+            <span class="chip">Musées gratuits</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">2h30 de route · 230 km</div><div class="connector-line"></div></div>
+
+      <!-- PHILADELPHIA -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">07</div>
+          <div class="step-city">Philadelphie</div>
+          <div class="step-days">1 jour</div>
+          <span class="step-tag tag-gold">🔔 Histoire</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="Liberty Bell" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Philadelphia historic" /></div>
+            <div class="itin-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPh3BbnMtlpaMIujmCYGpVqMLCNWkVUWhuJw&s" alt="Philly downtown" /></div>
+          </div>
+          <p class="itin-desc">La Liberty Bell, les Rocky Steps, le cheesesteak iconique. Philly est une escale parfaite — une grande ville américaine avec un caractère unique, à deux heures de New York.</p>
+          <div class="itin-chips">
+            <span class="chip">Liberty Bell</span>
+            <span class="chip">Rocky Steps</span>
+            <span class="chip">Philly Cheesesteak</span>
+            <span class="chip">Old City</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-dot"></div><div class="connector-text">1h45 de route · 160 km</div><div class="connector-line"></div></div>
+
+      <!-- NEW YORK -->
+      <div class="itin-step">
+        <div class="itin-left">
+          <div class="step-number">08</div>
+          <div class="step-city">New York</div>
+          <div class="step-days">3 jours</div>
+          <span class="step-tag tag-red">🏆 Grande Finale</span>
+        </div>
+        <div class="itin-right">
+          <div class="itin-photos">
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=600&q=80" alt="Times Square" /></div>
+            <div class="itin-photo"><img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=600&q=80" alt="Brooklyn Bridge" /></div>
+            <div class="itin-photo"><img src="https://cdn.sanity.io/images/nxpteyfv/goguides/bc7b59a234cb1e26623f44d0d2ea535fc239ffda-1600x1067.jpg" alt="Central Park" /></div>
+          </div>
+          <p class="itin-desc">Le climax du voyage. Trois jours dans la ville qui ne dort jamais — Times Square, Brooklyn Bridge, Central Park. Et en apothéose : la Grande Finale des Worlds 2026 au Madison Square Garden.</p>
+          <div class="itin-chips">
+            <span class="chip">Worlds Grande Finale 🏆</span>
+            <span class="chip">Times Square</span>
+            <span class="chip">Brooklyn Bridge</span>
+            <span class="chip">Central Park</span>
+            <span class="chip">Manhattan</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MAP
+════════════════════════════════════════ -->
+<div class="map-container reveal">
+
+    <!-- IMAGE MAP REMPLACÉE -->
+    <div class="route-svg-wrap">
+      <img 
+        src="C:\Users\tonyr\Desktop\Projects\Worlds 2026\8a9d9530-af17-4cbb-90cb-566f2e552f87.png" 
+        alt="Road trip USA de Dallas à New York" 
+        style="width:100%;height:auto;display:block;"
+      />
+    </div>
+  
+    <div class="route-stats">
+      <div class="route-stat"><div class="val">~2 600</div><div class="lbl">kilomètres</div></div>
+      <div class="route-stat"><div class="val">8</div><div class="lbl">villes</div></div>
+      <div class="route-stat"><div class="val">2</div><div class="lbl">semaines</div></div>
+      <div class="route-stat"><div class="val">~35h</div><div class="lbl">de route totale</div></div>
+    </div>
+  
+  </div>
+
+<!-- ═══════════════════════════════════════
+     BUDGET
+════════════════════════════════════════ -->
+<section id="budget">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Estimation financière</div>
+      <h2 class="section-title">Le budget<br/>par personne</h2>
+      <p class="section-subtitle">Fourchettes estimées pour 2 semaines, en partageant les coûts. Tout est modulable selon vos préférences.</p>
+    </div>
+
+    <div class="budget-grid">
+      <div class="budget-card reveal reveal-d1">
+        <div class="budget-icon">✈️</div>
+        <div class="budget-category">Vols A/R</div>
+        <div class="budget-range">600 – 950 €</div>
+      </div>
+      <div class="budget-card reveal reveal-d2">
+        <div class="budget-icon">🏨</div>
+        <div class="budget-category">Hébergement</div>
+        <div class="budget-range">750 – 1 400 €</div>
+      </div>
+      <div class="budget-card reveal reveal-d3">
+        <div class="budget-icon">🚗</div>
+        <div class="budget-category">Location voiture</div>
+        <div class="budget-range">180 – 300 €</div>
+      </div>
+      <div class="budget-card reveal reveal-d4">
+        <div class="budget-icon">🍔</div>
+        <div class="budget-category">Nourriture</div>
+        <div class="budget-range">350 – 600 €</div>
+      </div>
+      <div class="budget-card reveal reveal-d5">
+        <div class="budget-icon">🎟️</div>
+        <div class="budget-category">Activités & Worlds</div>
+        <div class="budget-range">200 – 600 €</div>
+      </div>
+    </div>
+
+    <div class="budget-total reveal">
+      <div>
+        <div class="budget-total-label">Total estimé</div>
+        <div class="budget-total-range">1 900 – 3 500 €</div>
+        <div class="budget-total-sub">par personne · 2 semaines · tout compris</div>
+      </div>
+      <div class="budget-bar">
+        <div class="bar-row">
+          <div class="bar-label">Vols</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:linear-gradient(90deg,#C13B2D,#E05A4A);" data-w="32"></div></div>
+          <div class="bar-val">~750 €</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Hébergement</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:linear-gradient(90deg,#C89B3C,#e0b84a);" data-w="50"></div></div>
+          <div class="bar-val">~1 075 €</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Voiture</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:linear-gradient(90deg,#1E90FF,#44aaff);" data-w="12"></div></div>
+          <div class="bar-val">~240 €</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Nourriture</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:linear-gradient(90deg,#8B5CF6,#a78bfa);" data-w="22"></div></div>
+          <div class="bar-val">~475 €</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Activités</div>
+          <div class="bar-track"><div class="bar-fill" style="width:0%;background:linear-gradient(90deg,#10B981,#34d399);" data-w="18"></div></div>
+          <div class="bar-val">~400 €</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRICE PROOFS
+════════════════════════════════════════ -->
+<section id="proofs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Budget réaliste</div>
+      <h2 class="section-title">Preuves<br/>de prix</h2>
+      <p class="section-subtitle">Je vous jure j'ai cherché mais j'ai pas tout screenshot, faites moi confiance.</p>
+    </div>
+    <div class="proofs-grid">
+      <div class="proof-card reveal reveal-d1">
+        <div class="proof-placeholder">
+          <div class="proof-placeholder-icon">✈️</div>
+          <div class="proof-placeholder-text">Capture Skyscanner</div>
+        </div>
+        <div class="proof-info">
+          <div class="proof-source">Skyscanner · Vols</div>
+          <div class="proof-desc">Bruxelles → Dallas + New York → Bruxelles — à partir de 650 € en octobre 2026.</div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d2">
+        <div class="proof-placeholder">
+          <div class="proof-placeholder-icon">🏨</div>
+          <div class="proof-placeholder-text">Capture Airbnb</div>
+        </div>
+        <div class="proof-info">
+          <div class="proof-source">Airbnb · Hébergement</div>
+          <div class="proof-desc">Appartement 3 chambres à Dallas partagé — entre 40 et 80 €/nuit par personne.</div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d3">
+        <div class="proof-placeholder">
+          <div class="proof-placeholder-icon">🏨</div>
+          <div class="proof-placeholder-text">Capture Booking.com</div>
+        </div>
+        <div class="proof-info">
+          <div class="proof-source">Booking.com · Hôtels</div>
+          <div class="proof-desc">Hôtels à Nashville et New York — entre 60 et 120 €/nuit par personne.</div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d4">
+        <div class="proof-placeholder">
+          <div class="proof-placeholder-icon">🚗</div>
+          <div class="proof-placeholder-text">Capture location voiture</div>
+        </div>
+        <div class="proof-info">
+          <div class="proof-source">Découvrir · Location</div>
+          <div class="proof-desc">SUV 7 places Dallas → New York (one-way) — environ 800-1200 € total pour le groupe.</div>
+        </div>
+      </div>
+    </div>
+    <p class="proofs-note reveal">Prix constatés lors des recherches effectuées en 2026. Les tarifs peuvent varier selon la date de réservation.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GALLERY
+════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Galerie</div>
+      <h2 class="section-title">L'Amérique<br/>en images</h2>
+    </div>
+    <div class="gallery-tabs reveal">
+      <button class="gallery-tab active" onclick="filterGallery('all', this)">Tout</button>
+      <button class="gallery-tab" onclick="filterGallery('dallas', this)">Dallas</button>
+      <button class="gallery-tab" onclick="filterGallery('austin', this)">Austin</button>
+      <button class="gallery-tab" onclick="filterGallery('nashville', this)">Nashville</button>
+      <button class="gallery-tab" onclick="filterGallery('nature', this)">Smokies</button>
+      <button class="gallery-tab" onclick="filterGallery('newyork', this)">New York</button>
+      <button class="gallery-tab" onclick="filterGallery('esport', this)">Worlds LoL</button>
+    </div>
+    <div class="masonry-grid" id="gallery-grid">
+
+      <div class="masonry-item" data-cat="dallas">
+        <img src="https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&q=80" alt="Dallas Skyline" />
+        <div class="masonry-overlay"><div class="masonry-caption">Dallas Skyline</div></div>
+      </div>
+      <div class="masonry-item" data-cat="newyork">
+        <img src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=600&q=80" alt="New York Manhattan" />
+        <div class="masonry-overlay"><div class="masonry-caption">Manhattan</div></div>
+      </div>
+      <div class="masonry-item" data-cat="nature">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Smoky Mountains" />
+        <div class="masonry-overlay"><div class="masonry-caption">Smoky Mountains</div></div>
+      </div>
+      <div class="masonry-item" data-cat="esport">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="Esport Arena" />
+        <div class="masonry-overlay"><div class="masonry-caption">Arena Worlds</div></div>
+      </div>
+      <div class="masonry-item" data-cat="austin">
+        <img src="https://images.unsplash.com/photo-1570168006751-b41a5b462ebd?w=600&q=80" alt="Austin Texas" />
+        <div class="masonry-overlay"><div class="masonry-caption">Austin, Texas</div></div>
+      </div>
+      <div class="masonry-item" data-cat="nashville">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Nashville Broadway" />
+        <div class="masonry-overlay"><div class="masonry-caption">Nashville Broadway</div></div>
+      </div>
+      <div class="masonry-item" data-cat="newyork">
+        <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=600&q=80" alt="Brooklyn Bridge" />
+        <div class="masonry-overlay"><div class="masonry-caption">Brooklyn Bridge</div></div>
+      </div>
+      <div class="masonry-item" data-cat="dallas">
+        <img src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?w=600&q=80" alt="AT&T Stadium" />
+        <div class="masonry-overlay"><div class="masonry-caption">AT&T Stadium</div></div>
+      </div>
+      <div class="masonry-item" data-cat="nature">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80" alt="Autumn colors" />
+        <div class="masonry-overlay"><div class="masonry-caption">Couleurs d'automne</div></div>
+      </div>
+      <div class="masonry-item" data-cat="esport">
+        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&q=80" alt="Gaming setup" />
+        <div class="masonry-overlay"><div class="masonry-caption">Ambiance Gaming</div></div>
+      </div>
+      <div class="masonry-item" data-cat="newyork">
+        <img src="https://images.unsplash.com/photo-1538965702590-ee882a0d4571?w=600&q=80" alt="Central Park" />
+        <div class="masonry-overlay"><div class="masonry-caption">Central Park</div></div>
+      </div>
+      <div class="masonry-item" data-cat="nashville">
+        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80" alt="Live music" />
+        <div class="masonry-overlay"><div class="masonry-caption">Live Music</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-eyebrow">Questions fréquentes</div>
+      <h2 class="section-title">On a pensé<br/>à tout</h2>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Combien ça coûte exactement ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Entre 1 900 et 3 500 € par personne pour 2 semaines, tout compris (vols, hébergement, voiture, nourriture, activités). Le budget varie selon le niveau de confort choisi et le nombre de participants — plus on est nombreux, plus on partage les coûts de la voiture et des logements.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Faut-il un passeport ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Oui, un passeport valide est obligatoire pour voyager aux États-Unis. En tant que ressortissants européens, nous n'avons pas besoin de visa classique mais devons obtenir une autorisation ESTA (environ 21 $) au minimum 72 heures avant le départ. C'est rapide à faire en ligne.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Faut-il parler anglais couramment ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Un niveau intermédiaire suffit largement pour voyager aux États-Unis. Les Américains sont très accueillants et patients avec les francophones. Pour le reste ne vous inquétez pas je gère.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Peut-on adapter le voyage ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Oui, l'itinéraire est une proposition. On peut ajuster les durées de séjour, ajouter des étapes, ou raccourcir certains tronçons. L'essentiel est de maintenir Dallas (Worlds Play-ins) et New York (Grande Finale) dans le programme. Tout le reste est modulable.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Combien de personnes pour ce voyage ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Idéalement entre 4 et 8 personnes. En dessous de 4, les coûts partagés (voiture, logement) deviennent moins avantageux. Au-dessus de 8, la logistique devient complexe (un seul grand véhicule ne suffit plus). Le sweet spot est entre 5 et 7 personnes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Quelles sont les dates ?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">Bah frérot tu connais pas les dates des worlds ? Bon ça passe pour cette fois, les Quarts de finale à Dallas commencet le 3 novembre et la grande finale est le 14 novembre à NYC.</div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section id="cta">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-eyebrow" style="text-align:center;">Le moment de décider</div>
+    <h2 class="section-title">Qui serait<br/>partant ?</h2>
+    <p class="section-subtitle">Si l'idée te parle, remplis le formulaire — ça n'engage à rien. On voit ensuite combien on est et on organise une réunion pour définir les détails ensemble.</p>
+    <div style="margin-top:2.5rem;">
+      <a href="https://forms.gle/v4WzJc5xKQkQd7gt7" target="_blank" class="btn-primary" style="font-size:1rem;padding:1rem 2.8rem;display:inline-block;">
+        📋 Je remplis le formulaire
+      </a>
+    </div>
+    <p class="cta-form-note">
+      <span style="color:var(--gold);">Ça prend 2 minutes.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">USA<span>2026</span></div>
+  <p class="footer-quote">"On regrette plus les voyages qu'on n'a pas faits que ceux qu'on a faits."</p>
+  <a href="https://forms.gle/v4WzJc5xKQkQd7gt7" class="btn-primary" target="_blank">Je participe ✈️</a>
+  <p style="font-size:0.75rem;color:var(--muted);">Site créé pour convaincre les amis · Autumn 2026</p>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // Nav scroll class
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Parallax hero
+  const heroBg = document.getElementById('hero-bg');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < window.innerHeight) {
+      heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.3}px)`;
+    }
+  });
+
+  // Intersection observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .itin-step').forEach(el => observer.observe(el));
+
+  // Animate budget bars on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const budgetTotal = document.querySelector('.budget-total');
+  if (budgetTotal) barObserver.observe(budgetTotal);
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Gallery filter
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.masonry-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
